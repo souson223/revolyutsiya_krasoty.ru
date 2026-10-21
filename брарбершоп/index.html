@@ -1,0 +1,1765 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Революция Красоты — Изaбелла Петросян</title>
+
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  
+  :root {
+    --bg-main: #b8b0a1;      /* Пудрово-бежевый фон как на фото */
+    --bg-dark: #a89f8e;      /* Чуть темнее для блоков */
+    --text-dark: #2b2823;    /* Темно-коричневый текст */
+    --text-light: #f4f1ea;   /* Светлый текст */
+    --accent: #554d41;       /* Акцентный глубокий цвет */
+  }
+  
+  body {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    background-color: var(--bg-main);
+    color: var(--text-dark);
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, .serif {
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: normal;
+    letter-spacing: 2px;
+  }
+  
+      /* HEADER */
+  header {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 1000;
+    padding: 30px 5%; /* ⬅️ Вернули большой отступ (панель станет высокой) */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(184, 176, 161, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(43, 40, 35, 0.1);
+  }
+  
+  .logo {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 22px;
+    font-weight: normal;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+  }
+  
+  nav ul {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+  }
+  
+  nav a {
+    color: var(--text-dark);
+    text-decoration: none;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    transition: opacity 0.3s;
+  }
+  
+  nav a:hover { opacity: 0.6; }
+  
+  .burger {
+    display: none;
+    cursor: pointer;
+    font-size: 26px;
+    background: none;
+    border: none;
+    color: var(--text-dark);
+  }
+  
+  .logo {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 22px;
+    font-weight: normal;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    
+  }
+  
+  nav ul {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+  }
+  
+  nav a {
+    color: var(--text-dark);
+    text-decoration: none;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    transition: opacity 0.3s;
+  }
+  
+  nav a:hover { opacity: 0.6; }
+  
+  .burger {
+    display: none;
+    cursor: pointer;
+    font-size: 26px;
+    background: none;
+    border: none;
+    color: var(--text-dark);
+  }
+  
+     /* --- ОБНОВЛЕННЫЙ БЛОК HERO С ФОТО --- */
+  .hero {
+    min-height: 90vh;
+    display: block; /* Меняем на block для точного позиционирования */
+    padding: 0;
+    background-color: var(--bg-main);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-image-wrapper {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 48%; /* Фото занимает чуть меньше половины экрана */
+    height: 100%;
+    z-index: 1;
+  }
+
+  .hero-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    
+    /* Плавный переход (растворение) левого края фото в фон */
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 15%);
+    mask-image: linear-gradient(to right, transparent 0%, black 15%);
+  }
+
+      .hero-text {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    min-height: 90vh;
+    
+    /* ⬅️ Убедитесь, что верхний отступ не меньше 140px */
+    padding: 140px 5% 60px; 
+    
+    width: 60%;
+  }
+
+  /* --- АДАПТИВ ДЛЯ ТЕЛЕФОНОВ --- */
+  @media (max-width: 768px) {
+    .hero-image-wrapper {
+      position: relative;
+      width: 100%;
+      height: 400px;
+    }
+    
+    .hero-text {
+      width: 100%;
+      min-height: auto;
+      padding: 40px 5%;
+    }
+    
+    /* На телефоне фото растворяется снизу */
+    .hero-img {
+      -webkit-mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+      mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+    }
+  }
+  
+  .hero h1 {
+    font-size: clamp(40px, 8vw, 80px);
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    letter-spacing: 5px;
+  }
+  
+  .hero .subtitle {
+    font-size: clamp(16px, 2vw, 22px);
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    margin-bottom: 20px;
+    font-family: 'Times New Roman', Times, serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .hero .subtitle::before, .hero .subtitle::after {
+    content: '';
+    height: 1px;
+    width: 60px;
+    background: var(--text-dark);
+    display: inline-block;
+  }
+
+  .hero .services-list {
+    font-size: 14px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 40px;
+    line-height: 2;
+  }
+  
+  .btn {
+    display: inline-block;
+    padding: 15px 40px;
+    background: var(--text-dark);
+    color: var(--text-light);
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 13px;
+    transition: all 0.3s;
+    border: 1px solid var(--text-dark);
+  }
+  
+  .btn:hover {
+    background: transparent;
+    color: var(--text-dark);
+  }
+  
+  /* SECTIONS */
+  section { padding: 80px 5%; }
+  
+  .section-title {
+    text-align: center;
+    font-size: clamp(32px, 5vw, 48px);
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    letter-spacing: 4px;
+  }
+
+  .section-subtitle {
+    text-align: center;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-bottom: 50px;
+  }
+  
+      /* PRICE LIST */
+  .price-section { 
+    background-color: var(--bg-dark); 
+  }
+
+  .price-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 20px;
+    align-items: start;
+  }
+
+  .price-column {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border: 1px solid rgba(43, 40, 35, 0.1);
+    border-radius: 6px;
+    display: block; /* Принудительно показываем */
+    opacity: 1 !important; /* Убираем прозрачность */
+    visibility: visible !important;
+  }
+
+  .price-col-title {
+    text-align: center;
+    font-size: 20px;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--text-dark);
+    text-transform: uppercase;
+  }
+
+  .price-subtitle {
+    font-size: 14px;
+    font-family: 'Times New Roman', serif;
+    letter-spacing: 0.5px;
+    margin: 20px 0 10px 0;
+    padding-bottom: 5px;
+    border-bottom: 1px dashed rgba(43, 40, 35, 0.3);
+    font-weight: bold;
+    color: var(--text-dark);
+  }
+
+  .price-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 8px 0;
+    font-size: 15px;
+    gap: 10px;
+    border-bottom: 1px solid rgba(43, 40, 35, 0.05);
+  }
+
+  .price-item:last-child { border-bottom: none; }
+
+  .price-value {
+    font-weight: bold;
+    white-space: nowrap;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 16px;
+  }
+
+  /* TEAM */
+  .team-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .team-card {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 40px 30px;
+    text-align: center;
+    border: 1px solid rgba(43, 40, 35, 0.15);
+    transition: transform 0.3s;
+    width: 280px;
+    display: block; /* Принудительно показываем */
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+
+  .team-card:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.3);
+  }
+
+  .team-card h3 { font-size: 24px; margin-bottom: 5px; }
+
+  .team-role {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 25px;
+    opacity: 0.8;
+  }
+
+  .team-phone {
+    display: inline-block;
+    padding: 10px 20px;
+    border: 1px solid var(--text-dark);
+    text-decoration: none;
+    color: var(--text-dark);
+    font-weight: bold;
+    letter-spacing: 1px;
+    transition: all 0.3s;
+  }
+
+  .team-phone:hover {
+    background: var(--text-dark);
+    color: var(--text-light);
+  }
+
+  .team-phone.empty {
+    border: 1px dashed rgba(43, 40, 35, 0.4);
+    color: rgba(43, 40, 35, 0.5);
+    font-weight: normal;
+    font-size: 14px;
+  }
+
+  /* CONTACT / CARD */
+  .contact-section {
+    background-color: var(--text-dark);
+    color: var(--text-light);
+    text-align: center;
+  }
+
+  .contact-section .section-title, 
+  .contact-section .section-subtitle {
+    color: var(--text-light);
+  }
+
+  .contact-card {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 50px 30px;
+    border: 1px solid rgba(244, 241, 234, 0.2);
+    position: relative;
+  }
+
+  .work-time {
+    font-size: 20px;
+    font-family: 'Times New Roman', Times, serif;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 30px;
+    line-height: 1.8;
+  }
+
+  .qr-placeholder {
+    width: 150px;
+    height: 150px;
+    background: #fff;
+    margin: 0 auto 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    position: relative;
+    /* Если у вас есть картинка QR-кода, раскомментируйте и укажите путь ниже */
+     background-image: url('qr.png'); 
+    background-size: cover; 
+  }
+
+  .qr-placeholder span {
+    color: #333;
+    font-size: 12px;
+    text-align: center;
+    padding: 10px;
+  }
+
+  /* Имитация логотипа МАКС в центре QR */
+  .qr-placeholder::after {
+    content: 'МАКС';
+    position: absolute;
+    background: #000;
+    color: #fff;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 9px;
+    font-weight: bold;
+    letter-spacing: 1px;
+  }
+
+  .big-phone {
+    font-size: 28px;
+    font-family: 'Times New Roman', Times, serif;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+    display: block;
+    color: var(--text-light);
+    text-decoration: none;
+  }
+
+  .address {
+    font-size: 16px;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+  }
+
+  .address-sub {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    opacity: 0.6;
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--bg-main);
+    padding: 30px 5%;
+    text-align: center;
+    border-top: 1px solid rgba(43, 40, 35, 0.1);
+  }
+  
+  footer p {
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text-dark);
+  }
+
+  /* ANIMATIONS */
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease;
+  }
+  
+  .reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  /* MOBILE */
+  @media (max-width: 768px) {
+    nav ul {
+      position: fixed;
+      top: 65px; left: 0; right: 0;
+      background: var(--bg-main);
+      flex-direction: column;
+      gap: 0;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s;
+      border-bottom: 1px solid var(--text-dark);
+    }
+    
+    nav ul.open { max-height: 400px; }
+    nav ul li { width: 100%; }
+    
+    nav a {
+      display: block;
+      padding: 15px 5%;
+      border-bottom: 1px solid rgba(43, 40, 35, 0.1);
+    }
+    
+    .burger { display: block; }
+
+    .price-item {
+      font-size: 16px;
+    }
+    .price-value {
+      font-size: 14px;
+    }
+    
+    .hero .subtitle::before, .hero .subtitle::after {
+      width: 30px;
+          .price-grid {
+      grid-template-columns: 1fr;
+    }
+    }
+  }      .gallery-wrapper {
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    overflow: hidden; /* Скрываем вылезающие края */
+  }
+
+    .gallery-track {
+    display: flex;
+    gap: 4vw;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    
+    /* Убираем отступ слева (padding-left), чтобы лента могла центрироваться */
+    padding: 20px 0; 
+    
+    /* Включаем прилипание к центру */
+    scroll-snap-type: x mandatory; 
+    
+    scrollbar-width: none; 
+    -ms-overflow-style: none;
+  }
+  
+  .gallery-track::-webkit-scrollbar { display: none; }
+
+      .gallery-item {
+    flex: 0 0 450px; /* ⬅️ Уменьшили ширину с 700 до 450 (чтобы фото не были гигантскими) */
+    height: 550px;   /* ⬅️ Сделали высоту чуть больше ширины (портретный формат) */
+    border-radius: 24px; 
+    overflow: hidden;
+    box-shadow: 0 15px 35px rgba(43, 40, 35, 0.15);
+    scroll-snap-align: center; 
+    background-color: rgba(0, 0, 0, 0.05); 
+  }
+
+  .gallery-item img {
+    width: 100%;
+    height: 100%;
+    
+    /* ⬅️ ВОТ ГЛАВНОЕ ИСПРАВЛЕНИЕ: фото заполнит собой весь прямоугольник */
+    object-fit: cover; 
+    /* Центрируем фото, чтобы самое важное было посередине */
+    object-position: center; 
+  }
+  /* Кнопки */
+  .gallery-btn {
+    position: absolute; top: 50%; transform: translateY(-50%);
+    background: var(--text-dark); color: var(--text-light); border: none;
+    width: 60px; height: 60px; border-radius: 50%; font-size: 22px;
+    cursor: pointer; display: flex; align-items: center; justify-content: center;
+    transition: all 0.3s; z-index: 10;
+  }
+
+  .gallery-btn:hover { background: var(--accent); transform: translateY(-50%) scale(1.1); }
+  .gallery-btn.prev { left: 2vw; }
+  .gallery-btn.next { right: 2vw; }
+
+  @media (max-width: 1024px) {
+    .gallery-item { flex: 0 0 500px; height: 500px; }
+  }
+
+  @media (max-width: 768px) {
+    .gallery-item { flex: 0 0 85vw; height: 85vw; }
+    .gallery-btn { width: 45px; height: 45px; font-size: 16px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">Революция Красоты</div>
+  <nav>
+    <ul id="menu">
+      <li><a href="#price">Прайс</a></li>
+      <li><a href="#team">Мастера</a></li>
+      <li><a href="#booking">Запись</a></li> 
+      <li><a href="#contacts">Контакты</a></li>
+    </ul>
+  </nav>
+  <button class="burger" onclick="document.getElementById('menu').classList.toggle('open')">☰</button>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  
+  <!-- Фотография справа с плавным переходом в фон -->
+  <div class="hero-image-wrapper">
+    <img src="i.webp112223.jpg" alt="Изaбелла" class="hero-img">
+  </div>
+
+  <!-- Текст по центру -->
+  <div class="hero-text">
+    <h1>Революция Красоты</h1>
+    <div class="subtitle">Изaбеллы Петросян</div>
+    <div class="services-list">
+      Парикмахерские услуги<br>
+      Ногтевой сервис • Косметология • Массажи
+    </div>
+    <a href="#contacts" class="btn">Связаться с нами</a>
+  </div>
+  
+</section>
+<!-- GALLERY -->
+<section id="gallery" style="background-color: var(--bg-main); padding: 80px 0; overflow: hidden;">
+  <h2 class="section-title" style="text-align: center; margin-bottom: 40px;">Наш салон</h2>
+  
+  <div class="gallery-wrapper">
+    <!-- Левая стрелка -->
+    <button class="gallery-btn prev" onclick="manualScroll(-1)">❮</button>
+    
+    <!-- Лента с 8 вашими фото -->
+    <div class="gallery-track" id="galleryTrack">
+      <div class="gallery-item"><img src="salon1.jpg" alt="Салон 1"></div>
+      <div class="gallery-item"><img src="salon2.jpg" alt="Салон 2"></div>
+      <div class="gallery-item"><img src="salon3.jpg" alt="Салон 3"></div>
+      <div class="gallery-item"><img src="salon4.jpg" alt="Салон 4"></div>
+      <div class="gallery-item"><img src="salon5.jpg" alt="Салон 5"></div>
+      <div class="gallery-item"><img src="salon6.jpg" alt="Салон 6"></div>
+      <div class="gallery-item"><img src="salon7.jpg" alt="Салон 7"></div>
+      <div class="gallery-item"><img src="salon8.jpg" alt="Салон 8"></div>
+    </div>
+    
+    <!-- Правая стрелка -->
+    <button class="gallery-btn next" onclick="manualScroll(1)">❯</button>
+  </div>
+</section>
+
+  
+</section>
+
+
+<!-- PRICE LIST -->
+<section id="price" class="price-section">
+  <h2 class="section-title">Прайс-лист</h2>
+  <div class="section-subtitle">Стоимость услуг</div>
+  
+  <div class="price-grid">
+    
+    <!-- 1 КОЛОНКА: Изабелла (Парикмахерские услуги) -->
+    <div class="price-column reveal">
+      <h3 class="price-col-title">Парикмахерские услуги</h3>
+      
+      <div class="price-item"><span>Выход из черного</span><span class="price-value">20000/25000</span></div>
+      <div class="price-item"><span>Окрашивание корней</span><span class="price-value">2500</span></div>
+      <div class="price-item"><span>Тотал блонд</span><span class="price-value">5500/7500</span></div>
+      <div class="price-item"><span>Сложная техника</span><span class="price-value">9500/11000/13000</span></div>
+      <div class="price-item"><span>Окрашивание в один тон</span><span class="price-value">3500/5500</span></div>
+      <div class="price-item"><span>Мелирование корни</span><span class="price-value">6000</span></div>
+      <div class="price-item"><span>Мелирование</span><span class="price-value">7000/9000/11000</span></div>
+      <div class="price-item"><span>Тонирование</span><span class="price-value">2000/2800</span></div>
+      <div class="price-item"><span>Стрижка женская</span><span class="price-value">1200/1500/1700</span></div>
+      <div class="price-item"><span>Стрижка мужская</span><span class="price-value">1000</span></div>
+      <div class="price-item"><span>Стрижка детская</span><span class="price-value">800</span></div>
+      <div class="price-item"><span>Челка</span><span class="price-value">500</span></div>
+      <div class="price-item"><span>Ровный срез</span><span class="price-value">1000</span></div>
+    </div>
+
+    <!-- 2 КОЛОНКА: Маникюр -->
+    <div class="price-column reveal">
+      <h3 class="price-col-title">Ногтевой сервис</h3>
+      
+      <div class="price-item"><span>Маникюр + укрепление гелем и покрытием гель-лак</span><span class="price-value">1900</span></div>
+      <div class="price-item"><span>Маникюр + снятие гель-лака</span><span class="price-value">1200</span></div>
+      <div class="price-item"><span>Маникюр комбинированный</span><span class="price-value">1000</span></div>
+      <div class="price-item"><span>Френч</span><span class="price-value">300</span></div>
+      <div class="price-item"><span>Легкий дизайн на двух ногтях</span><span class="price-value">бесплатно</span></div>
+      <div class="price-item"><span>Ремонт или донаращивание (каждый ноготь)</span><span class="price-value">50</span></div>
+      <div class="price-item"><span>Наращивание на нижние формы до 2 мм (с покрытием)</span><span class="price-value">2200</span></div>
+      <div class="price-item"><span>Педикюр с полной обработкой стопы и покрытием</span><span class="price-value">2500</span></div>
+      <div class="price-item"><span>Педикюр с обработкой стопы без покрытия</span><span class="price-value">2000</span></div>
+      <div class="price-item"><span>Педикюр обработка пальчиков с покрытием</span><span class="price-value">1600</span></div>
+      <div class="price-item"><span>Обработка только пальчиков б/п</span><span class="price-value">1300</span></div>
+    </div>
+
+    <!-- 3 КОЛОНКА: Массаж -->
+    <div class="price-column reveal">
+      <h3 class="price-col-title">Массаж</h3>
+      
+      <div class="price-item"><span>Классический массаж</span><span class="price-value">1200</span></div>
+      <div class="price-item"><span>Лимфодренажный массаж</span><span class="price-value">1200</span></div>
+      <div class="price-item"><span>Спортивный массаж</span><span class="price-value">2000</span></div>
+      <div class="price-item"><span>Антицеллюлитный массаж</span><span class="price-value">1200</span></div>
+    </div>
+
+    <!-- 4 КОЛОНКА: Косметолог -->
+    <div class="price-column reveal">
+      <h3 class="price-col-title">Косметология</h3>
+      
+      <div class="price-subtitle">Сияние и чистота кожи</div>
+      <div class="price-item"><span>Комбинированная чистка лица «Идеальный тон» (чистка + пилинг)</span><span class="price-value">4000/5500</span></div>
+      
+      <div class="price-subtitle">Обновление кожи</div>
+      <div class="price-item"><span>Поверхностный пилинг</span><span class="price-value">3000</span></div>
+      <div class="price-item"><span>Срединный пилинг (зависит от слоев)</span><span class="price-value">4000 - 5000</span></div>
+      
+      <div class="price-subtitle">Увлажнение и омоложение кожи</div>
+      <div class="price-item"><span>Мезотерапия / Биоревитализация</span><span class="price-value">от 5500</span></div>
+      <div class="price-item"><span>JUFORA</span><span class="price-value">7500</span></div>
+      <div class="price-item"><span>HYALREPAIR</span><span class="price-value">12000</span></div>
+      <div class="price-item"><span>NOVACUTAN</span><span class="price-value">от 13500</span></div>
+      <div class="price-item"><span>BELLARTI</span><span class="price-value">от 8500</span></div>
+      
+      <div class="price-item"><span>BELOTERO REVIVE</span><span class="price-value">14000</span></div>
+      <div class="price-item"><span>MESO-WHARTON</span><span class="price-value">14000</span></div>
+      <div class="price-item"><span>MESO-XANTHIN</span><span class="price-value">14000</span></div>
+      
+      <div class="price-subtitle">Полинуклеотиды (PDRN)</div>
+      <div class="price-item"><span>BELLARTI</span><span class="price-value">14500</span></div>
+      <div class="price-item"><span>NUCLEFORM</span><span class="price-value">13500</span></div>
+
+      <div class="price-subtitle">Коррекция мимических морщин</div>
+      <div class="price-item"><span>Ботулинотерапия (за единицу)</span><span class="price-value">310 / ед</span></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- TEAM -->
+<section id="team">
+  <h2 class="section-title">Наши мастера</h2>
+  <div class="section-subtitle">Специалисты своего дела</div>
+  
+  <div class="team-grid">
+    <!-- Белла (Парикмахер) -->
+    <div class="team-card reveal">
+      <h3>Изабелла</h3>
+      <div class="team-role">Парикмахер</div>
+      <a href="tel:89381240633" class="team-phone">8 938 124-06-33</a>
+    </div>
+
+    <!-- Мастер маникюра -->
+    <div class="team-card reveal">
+      <h3>Екатерина</h3>
+      <div class="team-role">Мастер маникюра</div>
+      <a href="tel:89281733822" class="team-phone">8 928 173-38-22</a>
+    </div>
+
+    <!-- Косметолог -->
+    <div class="team-card reveal">
+      <h3>Анна</h3>
+      <div class="team-role">Врач Косметолог </div>
+      <a href="tel: 89515022779" class="team-phone">8 951 502-27-79</a>
+    </div>
+
+    <!-- Массажист -->
+    <div class="team-card reveal">
+      <h3>Степан</h3>
+      <div class="team-role"> Массажист </div>
+      <a href="tel:89885508397" class="team-phone "> 8 988 550-83-97</a>
+    </div>
+  </section>
+
+<!-- BOOKING -->
+
+<section id="booking" style="background-color: var(--bg-main); border-top: 1px solid rgba(43, 40, 35, 0.1); padding: 100px 5%;">
+  <h2 class="section-title">Онлайн-запись</h2>
+  <div class="section-subtitle">Выберите удобное время</div>
+  
+    <div style="max-width: 600px; margin: 0 auto;">
+    
+    <!-- ЛЕВАЯ КОЛОНКА: Пошаговая форма -->
+    <div style="background: rgba(255,255,255,0.2); padding: 40px; border: 1px solid rgba(43, 40, 35, 0.15); border-radius: 10px;">
+      
+      <!-- ШАГ 1: Услуга -->
+      <div id="step1">
+        <h3 style="font-family: 'Times New Roman', serif; font-size: 20px; margin-bottom: 20px; letter-spacing: 1px; color: var(--text-dark);">1. Выберите услугу</h3>
+        <div id="serviceButtons" style="display: flex; flex-direction: column; gap: 10px;">
+          <button onclick="selectService('Стрижка', this)" class="srv-btn" style="padding: 15px; text-align: left; border: 1px solid var(--text-dark); background: transparent; color: var(--text-dark); cursor: pointer; font-family: inherit; font-size: 16px; transition: all 0.3s; border-radius: 4px;">Стрижка</button>
+          <button onclick="selectService('Окрашивание', this)" class="srv-btn" style="padding: 15px; text-align: left; border: 1px solid var(--text-dark); background: transparent; color: var(--text-dark); cursor: pointer; font-family: inherit; font-size: 16px; transition: all 0.3s; border-radius: 4px;">Окрашивание</button>
+          <button onclick="selectService('Уход', this)" class="srv-btn" style="padding: 15px; text-align: left; border: 1px solid var(--text-dark); background: transparent; color: var(--text-dark); cursor: pointer; font-family: inherit; font-size: 16px; transition: all 0.3s; border-radius: 4px;">Уход</button>
+          <button onclick="selectService('Маникюр', this)" class="srv-btn" style="padding: 15px; text-align: left; border: 1px solid var(--text-dark); background: transparent; color: var(--text-dark); cursor: pointer; font-family: inherit; font-size: 16px; transition: all 0.3s; border-radius: 4px;">Маникюр</button>
+        </div>
+      </div>
+
+      <!-- ШАГ 2: Кнопка "Продолжить" и скрытый календарь -->
+      <div id="step2" style="display: none; margin-top: 30px;">
+        
+        <!-- Кнопка Продолжить -->
+        <button type="button" id="startBookingBtn" onclick="window.open('https://n640927.yclients.ru/', '_blank')" style="width: 100%; padding: 15px; background: #d4af7a; color: var(--text-dark); border: 1px solid #c09b60; font-family: 'Times New Roman', serif; font-size: 16px; cursor: pointer; margin-bottom: 20px; border-radius: 4px; transition: 0.3s; font-weight: bold;">
+         Продолжить запись тут
+      </button>
+
+        <!-- Скрытый блок с датой и временем -->
+        <div id="dateTimeBlock" style="display: none;">
+          <h3 style="font-family: 'Times New Roman', serif; font-size: 20px; margin-bottom: 20px; letter-spacing: 1px; color: var(--text-dark);">2. Выберите дату и время</h3>
+          
+          <div id="dateScroll" style="display: flex; gap: 10px; overflow-x: auto; padding-bottom: 10px; margin-bottom: 20px;"></div>
+          <div id="timeGrid" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px;"></div>
+        </div>
+
+        <!-- ШАГ 3: Данные клиента -->
+        <div id="step3" style="display: none; margin-top: 30px; border-top: 1px solid rgba(43,40,35,0.1); padding-top: 20px;">
+          <h3 style="font-family: 'Times New Roman', serif; font-size: 20px; margin-bottom: 20px; letter-spacing: 1px; color: var(--text-dark);">3. Ваши данные</h3>
+          <form id="bookingForm" style="display: flex; flex-direction: column; gap: 15px;">
+            <input type="text" id="clientName" placeholder="Ваше имя" required style="padding: 15px; border: 1px solid var(--text-dark); background: transparent; font-family: inherit; color: var(--text-dark); border-radius: 4px;">
+            <input type="tel" id="clientPhone" placeholder="+7 (___) ___-__-__" value="+7 " maxlength="18" required style="padding: 15px; border: 1px solid var(--text-dark); background: transparent; font-family: inherit; color: var(--text-dark); border-radius: 4px;">
+            
+            <input type="hidden" id="hiddenService">
+            <input type="hidden" id="hiddenDate">
+            <input type="hidden" id="hiddenTime">
+
+            <div id="selectedSummary" style="font-size: 14px; text-align: center; color: var(--text-dark);"></div>
+            <button type="submit" class="btn" style="width: 100%; margin-top: 10px; border: none;">Подтвердить</button>
+          </form>
+          <div id="bookingMessage" style="margin-top: 20px; text-align: center; font-weight: bold; display: none;"></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+  
+  
+
+<!-- CONTACTS -->
+<section id="contacts" class="contact-section">
+  <h2 class="section-title">Контакты</h2>
+  <div class="section-subtitle">Ждем вас</div>
+  
+  <div class="contact-card">
+    
+    <div class="work-time">
+      Режим работы:<br>
+      С 9:00 до 20:00<br>
+      Без выходных
+    </div>
+
+          <div class="qr-block">
+      <img src="https://cdn.discordapp.com/attachments/1191465090495565916/1561053353801424896/image.png?ex=6ad990fa&is=6ad83f7a&hm=881d0fa7ae89499f557fc767eede72f9a84cf968c840e3be58abd37484a84905&" alt="QR-код МАКС" class="qr-img">
+      <div class="qr-text">МАКС</div>
+    </div>
+    
+    <a href="tel:89381240633" class="big-phone">8 938 124-06-33</a>
+
+    <div class="address">улица Суворова, 1/8</div>
+    <div class="address-sub">Революция Красоты</div>
+    
+                    <!-- МИНИ-КАРТА С МЕТКОЙ (СТАТИЧНАЯ) -->
+    <div style="margin-top: 30px; border-radius: 8px; overflow: hidden; position: relative; cursor: pointer; height: 250px; background: #e5e3df;" onclick="window.open('https://yandex.ru/maps/11029/rostov-oblast/house/ulitsa_suvorova_1_8/Z0AYcABiTkYPQFptfX9weXViZQ==/?azimuth=6.259224007279321&ll=39.673040%2C47.318835&z=18.47', '_blank')">
+      
+      <!-- Статичная карта с красной меткой на вашем доме -->
+      <img 
+        src="https://static-maps.yandex.ru/1.x/?ll=39.673040,47.318835&z=17&l=map&pt=39.673040,47.318835,pm2rdm&size=600,250" 
+        alt="Карта проезда" 
+        style="width: 100%; height: 100%; object-fit: cover; display: block; filter: grayscale(10%);"
+      >
+
+      <!-- Плашка снизу -->
+      <div style="position: absolute; bottom: 0; left: 0; width: 100%; background: rgba(43, 40, 35, 0.9); color: #fff; text-align: center; padding: 12px; font-size: 13px; text-transform: uppercase; letter-spacing: 1px; transition: background 0.3s;">
+        Построить маршрут на Яндекс.Картах
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Революция Красоты. Все права защищены.</p>
+</footer>
+
+<script>
+  window.addEventListener('load', function() {
+    
+    let track = document.getElementById('galleryTrack');
+    let autoScrollInterval;
+    let isHovered = false;
+    let isManual = false;
+
+    if (!track) return;
+
+    // 1. Дублируем фотографии 3 раза, чтобы создать длинную бесконечную ленту
+    const originalItems = Array.from(track.children);
+    for (let i = 0; i < 3; i++) {
+      originalItems.forEach(item => {
+        const clone = item.cloneNode(true);
+        track.appendChild(clone);
+      });
+    }
+
+    // 2. Функция для движения ВПРАВО
+        // Функция для движения ВПРАВО
+    function scrollNext() {
+      if (isHovered || isManual) return;
+
+      // ЗАЩИТА ОТ ДВОЙНОГО КЛИКА: 
+      // Если лента все еще двигается (плавно скроллится), мы ждем
+      if (window.isScrolling) return;
+
+      const firstItem = track.querySelector('.gallery-item');
+      if (!firstItem) return;
+      
+      const itemWidth = firstItem.offsetWidth;
+      const gap = window.innerWidth * 0.04; 
+      const scrollAmount = itemWidth + gap;
+
+      window.isScrolling = true; // Ставим блокировку
+
+      // Двигаем ленту
+      track.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+
+      // Снимаем блокировку через 800 миллисекунд (когда плавная прокрутка завершится)
+      setTimeout(function() {
+        window.isScrolling = false;
+      }, 800);
+    }
+
+    // 4. Запуск и остановка таймера (каждые 4 секунды)
+    function startAutoScroll() {
+      if (!autoScrollInterval) {
+        autoScrollInterval = setInterval(scrollNext, 4000); 
+      }
+    }
+
+    // 5. Управление стрелками (если пользователь нажмет вручную)
+    window.manualScroll = function(direction) {
+      isManual = true; 
+      
+      const firstItem = track.querySelector('.gallery-item');
+      const itemWidth = firstItem.offsetWidth;
+      const gap = window.innerWidth * 0.04; 
+      
+      // Если direction = 1 (вправо), если -1 (влево)
+      track.scrollBy({
+        left: direction * (itemWidth + gap),
+        behavior: 'smooth'
+      });
+
+      // Через 5 секунд возвращаем автопрокрутку
+      clearTimeout(window.manualTimeout);
+      window.manualTimeout = setTimeout(() => {
+        isManual = false;
+      }, 5000);
+    };
+
+    // 6. Пауза, когда мышка наведена
+    track.addEventListener('mouseenter', () => isHovered = true);
+    track.addEventListener('mouseleave', () => isHovered = false);
+
+    // СТАРТ
+    startAutoScroll();
+  });
+</script>
+
+<script>
+     // Ждем, пока страница полностью загрузится
+  document.addEventListener('DOMContentLoaded', function() {
+    
+    let currentService = "";
+    let currentDate = "";
+    let currentTime = "";
+
+    // 1. Выбор услуги (вызывается прямо из HTML через onclick)
+    window.selectService = function(service, btnElement) {
+      currentService = service;
+      document.getElementById('hiddenService').value = service;
+      
+      // Красим выбранную кнопку в темный
+      let allBtns = document.querySelectorAll('.srv-btn');
+      allBtns.forEach(function(b) {
+        b.style.background = 'transparent';
+        b.style.color = 'var(--text-dark)';
+      });
+      btnElement.style.background = 'var(--text-dark)';
+      btnElement.style.color = '#fff';
+
+      // Открываем 2-й шаг
+      document.getElementById('step2').style.display = 'block';
+      
+      // Если дата еще не выбрана, выбираем первый день автоматически
+      if (!currentDate) {
+        let firstBtn = document.querySelector('#dateScroll button');
+        if(firstBtn) firstBtn.click();
+      }
+    };
+
+    // 2. Генерация дат (на 7 дней вперед)
+    function generateDates() {
+      const dateScroll = document.getElementById('dateScroll');
+      if (!dateScroll) return;
+      dateScroll.innerHTML = '';
+      const today = new Date();
+      
+      for (let i = 0; i < 7; i++) {
+        const d = new Date(today);
+        d.setDate(today.getDate() + i);
+        
+        const dateStr = d.toISOString().split('T')[0];
+        const dayName = d.toLocaleDateString('ru-RU', { weekday: 'short' });
+        const dayNum = d.getDate();
+        const monthName = d.toLocaleDateString('ru-RU', { month: 'short' });
+
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.innerHTML = `<div style="font-size: 12px; opacity: 0.7;">${dayName}</div><div style="font-size: 20px; font-weight: bold;">${dayNum}</div><div style="font-size: 10px; text-transform: uppercase;">${monthName}</div>`;
+        btn.style.cssText = "min-width: 65px; padding: 10px 5px; border: 1px solid rgba(43,40,35,0.3); border-radius: 6px; background: rgba(255,255,255,0.3); color: var(--text-dark); cursor: pointer; text-align: center; transition: all 0.2s; font-family: inherit;";
+        
+        btn.onclick = function() {
+          document.querySelectorAll('#dateScroll button').forEach(function(b) {
+            b.style.background = 'rgba(255,255,255,0.3)';
+            b.style.color = 'var(--text-dark)';
+          });
+          btn.style.background = 'var(--text-dark)';
+          btn.style.color = '#fff';
+          currentDate = dateStr;
+          renderTimes();
+        };
+        dateScroll.appendChild(btn);
+      }
+    }
+
+    // 3. Генерация часов
+    function renderTimes() {
+      const timeGrid = document.getElementById('timeGrid');
+      if (!timeGrid) return;
+      timeGrid.innerHTML = '';
+      
+      for (let hour = 9; hour < 20; hour++) {
+        const timeStr = `${hour}:00`;
+        const bookingKey = `booking_${currentDate}_${timeStr}`;
+        const isBusy = localStorage.getItem(bookingKey) !== null;
+
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.textContent = timeStr;
+        btn.style.cssText = "padding: 10px; border-radius: 4px; font-family: inherit; font-size: 14px; cursor: pointer; transition: all 0.2s;";
+        
+        if (isBusy) {
+          btn.style.background = 'rgba(0,0,0,0.1)';
+          btn.style.color = 'rgba(43,40,35,0.4)';
+          btn.style.border = '1px solid transparent';
+          btn.disabled = true;
+          btn.style.cursor = 'not-allowed';
+        } else {
+          btn.style.background = 'rgba(255,255,255,0.3)';
+          btn.style.color = 'var(--text-dark)';
+          btn.style.border = '1px solid rgba(43,40,35,0.2)';
+          
+          btn.onclick = function() {
+            document.querySelectorAll('#timeGrid button').forEach(function(b) {
+              if (!b.disabled) {
+                b.style.background = 'rgba(255,255,255,0.3)';
+                b.style.color = 'var(--text-dark)';
+              }
+            });
+            btn.style.background = 'var(--text-dark)';
+            btn.style.color = '#fff';
+            
+            currentTime = timeStr;
+            document.getElementById('hiddenTime').value = timeStr;
+            document.getElementById('hiddenDate').value = currentDate;
+            
+            document.getElementById('step3').style.display = 'block';
+            document.getElementById('selectedSummary').textContent = `Вы выбрали: ${currentService}, ${currentDate} в ${timeStr}`;
+          };
+        }
+        timeGrid.appendChild(btn);
+      }
+    }
+
+    // 4. Отправка формы
+    const bForm = document.getElementById('bookingForm');
+    if (bForm) {
+      bForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const name = document.getElementById('clientName').value;
+        const phone = document.getElementById('clientPhone').value;
+        const bookingKey = `booking_${currentDate}_${currentTime}`;
+
+        if (localStorage.getItem(bookingKey)) {
+          alert('Это время только что заняли. Выберите другое.');
+          renderTimes();
+          return;
+        }
+
+        localStorage.setItem(bookingKey, JSON.stringify({ 
+          name: name, phone: phone, service: currentService, date: currentDate, time: currentTime 
+        }));
+
+        const msg = document.getElementById('bookingMessage');
+        msg.textContent = `Спасибо, ${name}! Вы записаны.`;
+        msg.style.color = 'green';
+        msg.style.display = 'block';
+
+        this.reset();
+        document.getElementById('step3').style.display = 'none';
+        renderTimes();
+        updatePublicList(); 
+      });
+    }
+
+    // 5. Отрисовка правой таблицы
+    function updatePublicList() {
+      const list = document.getElementById('publicScheduleList');
+      if (!list) return;
+      list.innerHTML = '';
+      let records = [];
+
+      for (let i = 0; i < localStorage.length; i++) {
+        const key = localStorage.key(i);
+        if (key.startsWith('booking_')) {
+          records.push(JSON.parse(localStorage.getItem(key)));
+        }
+      }
+
+      records.sort(function(a, b) { return new Date(a.date + 'T' + a.time) - new Date(b.date + 'T' + b.time); });
+
+      if (records.length === 0) {
+        list.innerHTML = '<p style="color: var(--text-dark); opacity: 0.6; font-size: 14px; font-style: italic;">Пока никто не записался. Будьте первыми!</p>';
+        return;
+      }
+
+      records.forEach(function(rec) {
+        const div = document.createElement('div');
+        div.style.cssText = "padding: 12px; background: rgba(255,255,255,0.3); border-left: 3px solid var(--text-dark); border-radius: 4px; display: flex; justify-content: space-between; align-items: center;";
+        
+        div.innerHTML = `
+          <div>
+            <div style="font-weight: bold; font-size: 15px; color: var(--text-dark);">${rec.name}</div>
+            <div style="font-size: 12px; color: var(--text-dark); opacity: 0.7;">${rec.service}</div>
+          </div>
+          <div style="text-align: right;">
+            <div style="font-weight: bold; font-size: 14px; color: var(--text-dark);">${rec.time}</div>
+            <div style="font-size: 12px; color: var(--text-dark); opacity: 0.7;">${rec.date}</div>
+          </div>
+        `;
+        list.appendChild(div);
+      });
+    }
+
+    // Запускаем генерацию дат и списка при загрузке
+    generateDates();
+    updatePublicList();
+  });
+  // Ждем, пока страница полностью загрузится
+  document.addEventListener('DOMContentLoaded', function() {
+    
+    let currentService = "";
+    let currentDate = "";
+    let currentTime = "";
+
+    // 1. Выбор услуги (вызывается прямо из HTML через onclick)
+    window.selectService = function(service, btnElement) {
+      currentService = service;
+      document.getElementById('hiddenService').value = service;
+      
+      // Красим выбранную кнопку в темный
+      let allBtns = document.querySelectorAll('.srv-btn');
+      allBtns.forEach(function(b) {
+        b.style.background = 'transparent';
+        b.style.color = 'var(--text-dark)';
+      });
+      btnElement.style.background = 'var(--text-dark)';
+      btnElement.style.color = '#fff';
+
+      // Открываем 2-й шаг
+      document.getElementById('step2').style.display = 'block';
+      
+      // Если дата еще не выбрана, выбираем первый день автоматически
+      if (!currentDate) {
+        let firstBtn = document.querySelector('#dateScroll button');
+        if(firstBtn) firstBtn.click();
+      }
+    };
+
+    // 2. Генерация дат (на 7 дней вперед)
+    function generateDates() {
+      const dateScroll = document.getElementById('dateScroll');
+      if (!dateScroll) return;
+      dateScroll.innerHTML = '';
+      const today = new Date();
+      
+      for (let i = 0; i < 7; i++) {
+        const d = new Date(today);
+        d.setDate(today.getDate() + i);
+        
+        const dateStr = d.toISOString().split('T')[0];
+        const dayName = d.toLocaleDateString('ru-RU', { weekday: 'short' });
+        const dayNum = d.getDate();
+        const monthName = d.toLocaleDateString('ru-RU', { month: 'short' });
+
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.innerHTML = `<div style="font-size: 12px; opacity: 0.7;">${dayName}</div><div style="font-size: 20px; font-weight: bold;">${dayNum}</div><div style="font-size: 10px; text-transform: uppercase;">${monthName}</div>`;
+        btn.style.cssText = "min-width: 65px; padding: 10px 5px; border: 1px solid rgba(43,40,35,0.3); border-radius: 6px; background: rgba(255,255,255,0.3); color: var(--text-dark); cursor: pointer; text-align: center; transition: all 0.2s; font-family: inherit;";
+        
+        btn.onclick = function() {
+          document.querySelectorAll('#dateScroll button').forEach(function(b) {
+            b.style.background = 'rgba(255,255,255,0.3)';
+            b.style.color = 'var(--text-dark)';
+          });
+          btn.style.background = 'var(--text-dark)';
+          btn.style.color = '#fff';
+          currentDate = dateStr;
+          renderTimes();
+        };
+        dateScroll.appendChild(btn);
+      }
+    }
+
+    // 3. Генерация часов
+    function renderTimes() {
+      const timeGrid = document.getElementById('timeGrid');
+      if (!timeGrid) return;
+      timeGrid.innerHTML = '';
+      
+      for (let hour = 9; hour < 20; hour++) {
+        const timeStr = `${hour}:00`;
+        const bookingKey = `booking_${currentDate}_${timeStr}`;
+        const isBusy = localStorage.getItem(bookingKey) !== null;
+
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.textContent = timeStr;
+        btn.style.cssText = "padding: 10px; border-radius: 4px; font-family: inherit; font-size: 14px; cursor: pointer; transition: all 0.2s;";
+        
+        if (isBusy) {
+          btn.style.background = 'rgba(0,0,0,0.1)';
+          btn.style.color = 'rgba(43,40,35,0.4)';
+          btn.style.border = '1px solid transparent';
+          btn.disabled = true;
+          btn.style.cursor = 'not-allowed';
+        } else {
+          btn.style.background = 'rgba(255,255,255,0.3)';
+          btn.style.color = 'var(--text-dark)';
+          btn.style.border = '1px solid rgba(43,40,35,0.2)';
+          
+          btn.onclick = function() {
+            document.querySelectorAll('#timeGrid button').forEach(function(b) {
+              if (!b.disabled) {
+                b.style.background = 'rgba(255,255,255,0.3)';
+                b.style.color = 'var(--text-dark)';
+              }
+            });
+            btn.style.background = 'var(--text-dark)';
+            btn.style.color = '#fff';
+            
+            currentTime = timeStr;
+            document.getElementById('hiddenTime').value = timeStr;
+            document.getElementById('hiddenDate').value = currentDate;
+            
+            document.getElementById('step3').style.display = 'block';
+            document.getElementById('selectedSummary').textContent = `Вы выбрали: ${currentService}, ${currentDate} в ${timeStr}`;
+          };
+        }
+        timeGrid.appendChild(btn);
+      }
+    }
+
+    // 4. Отправка формы
+    const bForm = document.getElementById('bookingForm');
+    if (bForm) {
+      bForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const name = document.getElementById('clientName').value;
+        const phone = document.getElementById('clientPhone').value;
+        const bookingKey = `booking_${currentDate}_${currentTime}`;
+
+        if (localStorage.getItem(bookingKey)) {
+          alert('Это время только что заняли. Выберите другое.');
+          renderTimes();
+          return;
+        }
+
+        localStorage.setItem(bookingKey, JSON.stringify({ 
+          name: name, phone: phone, service: currentService, date: currentDate, time: currentTime 
+        }));
+
+        const msg = document.getElementById('bookingMessage');
+        msg.textContent = `Спасибо, ${name}! Вы записаны.`;
+        msg.style.color = 'green';
+        msg.style.display = 'block';
+
+        this.reset();
+        document.getElementById('step3').style.display = 'none';
+        renderTimes();
+        updatePublicList(); 
+      });
+    }
+
+    // 5. Отрисовка правой таблицы
+    function updatePublicList() {
+      const list = document.getElementById('publicScheduleList');
+      if (!list) return;
+      list.innerHTML = '';
+      let records = [];
+
+      for (let i = 0; i < localStorage.length; i++) {
+        const key = localStorage.key(i);
+        if (key.startsWith('booking_')) {
+          records.push(JSON.parse(localStorage.getItem(key)));
+        }
+      }
+
+      records.sort(function(a, b) { return new Date(a.date + 'T' + a.time) - new Date(b.date + 'T' + b.time); });
+
+      if (records.length === 0) {
+        list.innerHTML = '<p style="color: var(--text-dark); opacity: 0.6; font-size: 14px; font-style: italic;">Пока никто не записался. Будьте первыми!</p>';
+        return;
+      }
+
+      records.forEach(function(rec) {
+        const div = document.createElement('div');
+        div.style.cssText = "padding: 12px; background: rgba(255,255,255,0.3); border-left: 3px solid var(--text-dark); border-radius: 4px; display: flex; justify-content: space-between; align-items: center;";
+        
+        div.innerHTML = `
+          <div>
+            <div style="font-weight: bold; font-size: 15px; color: var(--text-dark);">${rec.name}</div>
+            <div style="font-size: 12px; color: var(--text-dark); opacity: 0.7;">${rec.service}</div>
+          </div>
+          <div style="text-align: right;">
+            <div style="font-weight: bold; font-size: 14px; color: var(--text-dark);">${rec.time}</div>
+            <div style="font-size: 12px; color: var(--text-dark); opacity: 0.7;">${rec.date}</div>
+          </div>
+        `;
+        list.appendChild(div);
+      });
+    }
+
+    // ===== МАСКА ДЛЯ ТЕЛЕФОНА (+7) =====
+    const phoneInput = document.getElementById('clientPhone');
+    
+    if (phoneInput) {
+      // Ставим +7 при клике, если поле пустое
+      phoneInput.addEventListener('focus', function() {
+        if (this.value === '') {
+          this.value = '+7 ';
+        }
+      });
+
+      // Не даем удалить +7 в начале
+      phoneInput.addEventListener('input', function() {
+        if (!this.value.startsWith('+7')) {
+          this.value = '+7 ' + this.value.replace(/[^\d]/g, '');
+        }
+      });
+
+      // Автоматически расставляем скобки и дефисы при вводе цифр
+      phoneInput.addEventListener('input', function() {
+        let digits = this.value.replace(/\D/g, ''); // Оставляем только цифры
+        
+        // Если первая цифра 7 или 8, убираем её для удобства (т.к. +7 уже есть)
+        if (digits.startsWith('7') || digits.startsWith('8')) {
+          digits = digits.substring(1);
+        }
+        
+        let formatted = '+7 ';
+        if (digits.length > 0) {
+          formatted += '(' + digits.substring(0, 3);
+        }
+        if (digits.length >= 3) {
+          formatted += ') ' + digits.substring(3, 6);
+        }
+        if (digits.length >= 6) {
+          formatted += '-' + digits.substring(6, 8);
+        }
+        if (digits.length >= 8) {
+          formatted += '-' + digits.substring(8, 10);
+        }
+        
+        this.value = formatted;
+      });
+    }
+
+    // Запускаем генерацию дат и списка при загрузке
+    generateDates();
+    updatePublicList();
+  });
+
+</script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    
+    let currentService = "";
+    let currentDate = "";
+    let currentTime = "";
+
+    // Плавная прокрутка
+    document.querySelectorAll('a[href^="#"]').forEach(link => {
+      link.addEventListener('click', e => {
+        e.preventDefault();
+        const target = document.querySelector(link.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          document.getElementById('menu').classList.remove('open');
+        }
+      });
+    });
+
+    // ===== ВЫБОР УСЛУГИ =====
+    window.selectService = function(service, btnElement) {
+      currentService = service;
+      document.getElementById('hiddenService').value = service;
+      
+      let allBtns = document.querySelectorAll('.srv-btn');
+      allBtns.forEach(function(b) {
+        b.style.background = 'transparent';
+        b.style.color = 'var(--text-dark)';
+      });
+      btnElement.style.background = 'var(--text-dark)';
+      btnElement.style.color = '#fff';
+
+      // Показываем Шаг 2 (с кнопкой "Продолжить")
+      document.getElementById('step2').style.display = 'block';
+      
+      // СКРЫВАЕМ календарь и шаг с именем, если они были открыты до этого
+      document.getElementById('dateTimeBlock').style.display = 'none';
+      document.getElementById('step3').style.display = 'none';
+      document.getElementById('startBookingBtn').style.display = 'block'; // Возвращаем кнопку
+    };
+
+    // ===== ОТКРЫТИЕ КАЛЕНДАРЯ ПО КНОПКЕ =====
+    window.showDateTime = function() {
+      document.getElementById('dateTimeBlock').style.display = 'block';
+      document.getElementById('startBookingBtn').style.display = 'none';
+
+      if (!currentDate) {
+        let firstBtn = document.querySelector('#dateScroll button');
+        if(firstBtn) firstBtn.click();
+      }
+    };
+
+    // ===== ГЕНЕРАЦИЯ ДАТ =====
+    function generateDates() {
+      const dateScroll = document.getElementById('dateScroll');
+      if (!dateScroll) return;
+      dateScroll.innerHTML = '';
+      const today = new Date();
+      
+      for (let i = 0; i < 7; i++) {
+        const d = new Date(today);
+        d.setDate(today.getDate() + i);
+        
+        const dateStr = d.toISOString().split('T')[0];
+        const dayName = d.toLocaleDateString('ru-RU', { weekday: 'short' });
+        const dayNum = d.getDate();
+        const monthName = d.toLocaleDateString('ru-RU', { month: 'short' });
+
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.innerHTML = `<div style="font-size: 12px; opacity: 0.7;">${dayName}</div><div style="font-size: 20px; font-weight: bold;">${dayNum}</div><div style="font-size: 10px; text-transform: uppercase;">${monthName}</div>`;
+        btn.style.cssText = "min-width: 65px; padding: 10px 5px; border: 1px solid rgba(43,40,35,0.3); border-radius: 6px; background: rgba(255,255,255,0.3); color: var(--text-dark); cursor: pointer; text-align: center; transition: all 0.2s; font-family: inherit;";
+        
+        btn.onclick = function() {
+          document.querySelectorAll('#dateScroll button').forEach(function(b) {
+            b.style.background = 'rgba(255,255,255,0.3)';
+            b.style.color = 'var(--text-dark)';
+          });
+          btn.style.background = 'var(--text-dark)';
+          btn.style.color = '#fff';
+          currentDate = dateStr;
+          currentTime = ""; // Сбрасываем время
+          renderTimes();
+        };
+        dateScroll.appendChild(btn);
+      }
+    }
+
+    // ===== ГЕНЕРАЦИЯ ВРЕМЕНИ =====
+    function renderTimes() {
+      const timeGrid = document.getElementById('timeGrid');
+      if (!timeGrid) return;
+      timeGrid.innerHTML = '';
+      
+      for (let hour = 9; hour < 20; hour++) {
+        const timeStr = `${hour}:00`;
+        const bookingKey = `booking_${currentDate}_${timeStr}`;
+        const isBusy = localStorage.getItem(bookingKey) !== null;
+
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.textContent = timeStr;
+        btn.style.cssText = "padding: 10px; border-radius: 4px; font-family: inherit; font-size: 14px; cursor: pointer; transition: all 0.2s;";
+        
+        if (isBusy) {
+          btn.style.background = 'rgba(0,0,0,0.1)';
+          btn.style.color = 'rgba(43,40,35,0.4)';
+          btn.style.border = '1px solid transparent';
+          btn.disabled = true;
+          btn.style.cursor = 'not-allowed';
+        } else {
+          btn.style.background = 'rgba(255,255,255,0.3)';
+          btn.style.color = 'var(--text-dark)';
+          btn.style.border = '1px solid rgba(43,40,35,0.2)';
+          
+          btn.onclick = function() {
+            document.querySelectorAll('#timeGrid button').forEach(function(b) {
+              if (!b.disabled) {
+                b.style.background = 'rgba(255,255,255,0.3)';
+                b.style.color = 'var(--text-dark)';
+              }
+            });
+            btn.style.background = 'var(--text-dark)';
+            btn.style.color = '#fff';
+            
+            currentTime = timeStr;
+            document.getElementById('hiddenTime').value = timeStr;
+            document.getElementById('hiddenDate').value = currentDate;
+            
+            document.getElementById('step3').style.display = 'block';
+            document.getElementById('selectedSummary').textContent = `Вы выбрали: ${currentService}, ${currentDate} в ${timeStr}`;
+          };
+        }
+        timeGrid.appendChild(btn);
+      }
+    }
+
+    // ===== ОТПРАВКА ФОРМЫ =====
+    const bForm = document.getElementById('bookingForm');
+    if (bForm) {
+      bForm.addEventListener('submit', function(e) {
+        e.preventDefault(); 
+        e.stopPropagation(); 
+
+        const name = document.getElementById('clientName').value.trim();
+        const phone = document.getElementById('clientPhone').value.trim();
+
+        if (!currentDate || !currentTime) {
+          alert('Пожалуйста, выберите дату и время.');
+          return;
+        }
+
+        if (!name) {
+          alert('Пожалуйста, введите ваше имя.');
+          return;
+        }
+
+        const bookingKey = `booking_${currentDate}_${currentTime}`;
+
+        if (localStorage.getItem(bookingKey)) {
+          alert('Это время только что заняли. Выберите другое.');
+          renderTimes();
+          return;
+        }
+
+        localStorage.setItem(bookingKey, JSON.stringify({ 
+          name: name, phone: phone, service: currentService, date: currentDate, time: currentTime 
+        }));
+
+        const msg = document.getElementById('bookingMessage');
+        msg.innerHTML = `Спасибо, ${name}! Вы успешно записаны.`;
+        msg.style.color = 'green';
+        msg.style.background = 'rgba(255,255,255,0.5)';
+        msg.style.padding = '10px';
+        msg.style.borderRadius = '5px';
+        msg.style.display = 'block';
+
+        this.reset();
+        document.getElementById('step3').style.display = 'none';
+        document.getElementById('dateTimeBlock').style.display = 'none';
+        document.getElementById('startBookingBtn').style.display = 'block';
+        
+        currentTime = ""; 
+        
+        renderTimes();
+        updatePublicList(); 
+      });
+    }
+
+    // ===== СПИСОК ЗАПИСЕЙ =====
+    function updatePublicList() {
+      const list = document.getElementById('publicScheduleList');
+      if (!list) return;
+      list.innerHTML = '';
+      let records = [];
+
+      for (let i = 0; i < localStorage.length; i++) {
+        const key = localStorage.key(i);
+        if (key.startsWith('booking_')) {
+          try {
+            let data = JSON.parse(localStorage.getItem(key));
+            if (!data || !data.name || !data.time) {
+              localStorage.removeItem(key);
+              continue;
+            }
+            records.push({ key: key, ...data });
+          } catch(e) {
+            localStorage.removeItem(key);
+          }
+        }
+      }
+
+      records.sort(function(a, b) { return new Date(a.date + 'T' + a.time) - new Date(b.date + 'T' + b.time); });
+
+      if (records.length === 0) {
+        list.innerHTML = '<p style="color: var(--text-dark); opacity: 0.6; font-size: 14px; font-style: italic;">Пока никто не записался. Будьте первыми!</p>';
+        return;
+      }
+
+      records.forEach(function(rec) {
+        const div = document.createElement('div');
+        div.style.cssText = "padding: 12px; background: rgba(255,255,255,0.3); border-left: 3px solid var(--text-dark); border-radius: 4px; display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 10px;";
+        
+        div.innerHTML = `
+          <div style="flex: 1;">
+            <div style="font-weight: bold; font-size: 15px; color: var(--text-dark); margin-bottom: 4px;">${rec.name}</div>
+            <div style="font-size: 12px; color: var(--text-dark); opacity: 0.7; margin-bottom: 8px;">${rec.service}</div>
+            
+            <button type="button" onclick="cancelRecord('${rec.key}', '${rec.name.replace(/'/g, "\\'")}')" style="background: #d9534f; color: #fff; border: none; font-size: 11px; padding: 5px 8px; border-radius: 4px; cursor: pointer; transition: 0.2s;">Отменить</button>
+          </div>
+          
+          <div style="text-align: right; min-width: 70px;">
+            <div style="font-weight: bold; font-size: 14px; color: var(--text-dark);">${rec.time}</div>
+            <div style="font-size: 12px; color: var(--text-dark); opacity: 0.7;">${rec.date}</div>
+          </div>
+        `;
+        list.appendChild(div);
+      });
+    }
+
+    // ===== ОТМЕНА =====
+    window.cancelRecord = function(bookingKey, clientName) {
+      let inputName = prompt("Для отмены записи введите ваше имя:");
+      if (inputName === null) return; 
+
+      if (inputName.trim().toLowerCase() === clientName.trim().toLowerCase()) {
+        localStorage.removeItem(bookingKey);
+        updatePublicList();
+        renderTimes();
+        alert("Запись успешно отменена!");
+      } else {
+        alert("Имя не совпадает с тем, на которое сделана запись.");
+      }
+    };
+
+    // ===== МАСКА ТЕЛЕФОНА =====
+    const phoneInput = document.getElementById('clientPhone');
+    if (phoneInput) {
+      phoneInput.addEventListener('focus', function() {
+        if (this.value === '') { this.value = '+7 '; }
+      });
+      phoneInput.addEventListener('input', function() {
+        if (!this.value.startsWith('+7')) {
+          this.value = '+7 ' + this.value.replace(/[^\d]/g, '');
+        }
+      });
+      phoneInput.addEventListener('input', function() {
+        let digits = this.value.replace(/\D/g, '');
+        if (digits.startsWith('7') || digits.startsWith('8')) { digits = digits.substring(1); }
+        let formatted = '+7 ';
+        if (digits.length > 0) { formatted += '(' + digits.substring(0, 3); }
+        if (digits.length >= 3) { formatted += ') ' + digits.substring(3, 6); }
+        if (digits.length >= 6) { formatted += '-' + digits.substring(6, 8); }
+        if (digits.length >= 8) { formatted += '-' + digits.substring(8, 10); }
+        this.value = formatted;
+      });
+    }
+
+    // ===== ЗАПУСК =====
+    generateDates();
+    updatePublicList();
+  });
+             window.scrollGallery = function(direction) {
+      const track = document.getElementById('galleryTrack');
+      if (!track) return;
+      
+      // 320px (ширина фото) + 60px (отступ) = 380px
+      const scrollAmount = 380; 
+      
+      track.scrollBy({
+        left: direction * scrollAmount,
+        behavior: 'smooth'
+      });
+    };
+           // ===== КАРУСЕЛЬ С АВТОПРОКРУТКОЙ (ИСПРАВЛЕНО) =====
+    let track = null;
+    let autoScrollInterval;
+
+    function scrollNext() {
+      if (!track) return;
+      
+      const firstItem = track.querySelector('.gallery-item');
+      if (!firstItem) return;
+      
+      const itemWidth = firstItem.offsetWidth;
+      const gap = window.innerWidth * 0.05; 
+      const scrollAmount = itemWidth + gap;
+
+      // Если дошли до конца, возвращаемся в начало
+      if (track.scrollLeft + track.clientWidth >= track.scrollWidth - 10) {
+        track.scrollTo({ left: 0, behavior: 'smooth' });
+      } else {
+        track.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+      }
+    }
+
+    function startAutoScroll() {
+      if(!autoScrollInterval) {
+        autoScrollInterval = setInterval(scrollNext, 3000);
+      }
+    }
+
+    function stopAutoScroll() {
+      clearInterval(autoScrollInterval);
+      autoScrollInterval = null;
+    }
+
+    window.manualScroll = function(direction) {
+      stopAutoScroll(); 
+      
+      if (!track) return;
+      const firstItem = track.querySelector('.gallery-item');
+      if (!firstItem) return;
+
+      const itemWidth = firstItem.offsetWidth;
+      const gap = window.innerWidth * 0.05; 
+      
+      track.scrollBy({
+        left: direction * (itemWidth + gap),
+        behavior: 'smooth'
+      });
+
+      setTimeout(startAutoScroll, 5000);
+    };
+
+    // Ждем полной загрузки страницы, чтобы найти ленту
+    setTimeout(function() {
+      track = document.getElementById('galleryTrack');
+      if (track) {
+        startAutoScroll();
+        track.addEventListener('mouseenter', stopAutoScroll);
+        track.addEventListener('mouseleave', startAutoScroll);
+      }
+    }, 500); // Ждем полсекунды для надежности
+  
+</script>
+</body>
+</html>
